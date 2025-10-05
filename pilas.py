@@ -12,7 +12,7 @@ class Pila:
 
     def insertar(self, elemento):
         if self.esta_llena():
-            print(f" Error: Desbordamiento. No se puede insertar {elemento}. La pila está llena.")
+            print(f" Error: {elemento}. La pila está llena.")
         else:
             self.items.append(elemento)
             self.tope += 1
@@ -20,7 +20,7 @@ class Pila:
 
     def eliminar(self, etiqueta):
         if self.esta_vacia():
-            print(f" Error: Subdesbordamiento. No se puede eliminar ({etiqueta}). La pila está vacía.")
+            print(f" Error: ({etiqueta}). La pila está vacía.")
         else:
             elemento = self.items.pop()
             self.tope -= 1
@@ -44,3 +44,4 @@ pila.insertar("R")
 print("\n=== ESTADO FINAL ===")
 print(f"Pila final: {pila.items} | TOPE = {pila.tope}")
 print(f"Total de elementos en la pila: {len(pila.items)}")
+

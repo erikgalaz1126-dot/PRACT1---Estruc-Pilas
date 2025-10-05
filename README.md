@@ -1,1 +1,2 @@
-si hubo unas pequeñas complicaciones que era q ocurria un error al momento de poner la octava pila pero se arreglo cambiando el formato de como se muestra la pila
+Si hubo un error y era que se intentaba eliminar algo cuando la pila ya estaba vacia eso fue lo que dio el error y al final quedaron
+2 pilas unicamente

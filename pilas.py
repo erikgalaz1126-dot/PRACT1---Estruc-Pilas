@@ -12,60 +12,35 @@ class Pila:
 
     def insertar(self, elemento):
         if self.esta_llena():
-            print(" Error: Desbordamiento. La pila está llena.\n")
+            print(f" Error: Desbordamiento. No se puede insertar {elemento}. La pila está llena.")
         else:
             self.items.append(elemento)
             self.tope += 1
-            print(f" Se insertó '{elemento}' correctamente.")
-            self.mostrar_estado()
+            print(f" Insertar({elemento}) → Pila: {self.items} | TOPE = {self.tope}")
 
-    def eliminar(self):
+    def eliminar(self, etiqueta):
         if self.esta_vacia():
-            print(" Error: Subdesbordamiento. La pila está vacía.\n")
+            print(f" Error: Subdesbordamiento. No se puede eliminar ({etiqueta}). La pila está vacía.")
         else:
-            eliminado = self.items.pop()
+            elemento = self.items.pop()
             self.tope -= 1
-            print(f" Se eliminó '{eliminado}' correctamente.")
-            self.mostrar_estado()
+            print(f" Eliminar({etiqueta}) → Se quitó {elemento} | Pila: {self.items} | TOPE = {self.tope}")
 
-    def mostrar_estado(self):
-        print(" Estado actual de la pila:")
-        for i in range(self.tope - 1, -1, -1):
-            print(f"| {self.items[i]} |")
-        print("-----")
-        print(f"TOPE = {self.tope}\n")
+pila = Pila(8) 
 
-def menu():
-    pila = Pila(8)  
-    opcion = 0
+print("=== ESTADO INICIAL ===")
+print(f"Pila: {pila.items} | TOPE = {pila.tope}\n")
 
-    while opcion != 4:
-        print("====== MENÚ DE PILA ======")
-        print("1. Insertar elemento")
-        print("2. Eliminar elemento")
-        print("3. Mostrar pila")
-        print("4. Salir")
-        print("==========================")
-        try:
-            opcion = int(input("Elige una opción: "))
-        except ValueError:
-            print(" Ingresa un número válido.\n")
-            continue
+pila.insertar("X")   
+pila.insertar("Y")   
+pila.eliminar("Z")   
+pila.eliminar("T")   
+pila.eliminar("U")   
+pila.insertar("V")   
+pila.insertar("W")  
+pila.eliminar("p")   
+pila.insertar("R")   
 
-        if opcion == 1:
-            elemento = input("Ingresa el elemento a insertar: ")
-            pila.insertar(elemento)
-        elif opcion == 2:
-            pila.eliminar()
-        elif opcion == 3:
-            pila.mostrar_estado()
-        elif opcion == 4:
-            print(" Saliendo del programa...")
-        else:
-            print(" Opción no válida. Intenta de nuevo.\n")
-
-    print(f"\nPila final: {pila.items}")
-    print(f"Total de elementos: {len(pila.items)}")
-
-if __name__ == "__main__":
-    menu()
+print("\n=== ESTADO FINAL ===")
+print(f"Pila final: {pila.items} | TOPE = {pila.tope}")
+print(f"Total de elementos en la pila: {len(pila.items)}")
